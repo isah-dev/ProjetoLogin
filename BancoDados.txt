@@ -1,0 +1,163 @@
+create database dbEcommerce;
+use dbEcommerce;
+
+create table produtos(
+id int auto_increment primary key ,
+nome varchar (100) not null,
+preco decimal not null,
+quantidade_estoque int not null,
+criado_em timestamp default current_timestamp
+);
+
+create database dbEscola;
+use dbEscola;
+
+create table alunos (
+id int auto_increment primary key,
+nome_completo varchar (100) not null,
+email varchar (100) not null,
+data_nascimento date,
+cadastrado_em timestamp default current_timestamp
+);
+
+create database dbClinica;
+use dbClinica;
+
+create table pacientes(
+id int auto_increment primary key,
+nome varchar (120) not null,
+cpf varchar(14) not null,
+telefone varchar (20),
+criado_em timestamp default current_timestamp
+);
+
+create database dbRestaurante;
+use dbRestaurante;
+
+create table pratos (
+id int auto_increment primary key,
+nome_prato varchar(100) not null,
+preco decimal not null,
+categoria varchar (50) not null,
+criado_em timestamp default current_timestamp
+);
+
+use dbecommerce;
+insert into produtos (nome, preco, quantidade_estoque)
+values ('blusa','50', '100');
+
+insert into produtos (nome, preco, quantidade_estoque)
+values ('tablet','5.000', '10');
+
+select * from produtos;
+
+update produtos
+set nome = 'livro'
+where id = 1;
+
+delete from produtos
+where id =2;
+
+
+use dbescola;
+insert into alunos ( nome_completo , email )
+values ('maria', 'maria@com');
+
+select * from alunos;
+
+insert into alunos ( nome_completo , email )
+values ('arthur', 'arthur@com');
+
+select * from alunos;
+
+use dbClinica;
+insert into pacientes  ( nome , cpf, telefone )
+values ('luiza', 3452341456, 1134562345 );
+
+select * from pacientes;
+
+insert into pacientes  ( nome , cpf, telefone )
+values ('maria helena', 34576539807, 1134562985 );
+
+insert into pacientes  ( nome , cpf, telefone )
+values ('lucas', 3452343189, 113456987 );
+
+select * from pacientes;
+
+delete from pacientes
+where id = 4;
+
+use dbrestaurante;
+
+insert into pratos (nome_prato, preco, categoria)
+values ('macarronada', 34, 'carboidrato');
+select * from pratos;
+
+delete from pratos
+where id = 2;
+
+insert into pratos (nome_prato, preco, categoria)
+values ('salada crespy', 26, 'fitness');
+
+create database dbAcademia;
+use dbAcademia;
+
+create table membros(
+id int auto_increment primary key,
+nome varchar(100) not null,
+plano varchar(50) not null,
+ativo bool default true,
+data_inscricao timestamp default current_timestamp
+);
+
+insert into membros (nome, plano)
+values ('elisa', 'vip');
+
+insert into membros (nome, plano)
+values ('enzo', 'vip');
+
+select * from membros;
+
+create database dbhotel;
+use dbhotel;
+
+create table quartos(
+id int auto_increment primary key,
+numero_quarto int not null,
+tipo varchar(100) not null,
+preco_diaria decimal not null, 
+atualizado_em timestamp default current_timestamp
+);
+insert into quartos (numero_quarto, tipo, preco_diaria)
+values (5, 'presidencial', 5900);
+
+insert into quartos (numero_quarto, tipo, preco_diaria)
+values (9, 'economico', 300);
+
+select * from quartos;
+
+create database dbcinema;
+use dbcinema;
+
+create table filmes(
+id int auto_increment primary key,
+titulo varchar(150) not null,
+genero varchar(150) not null,
+duracao_minutos int not null,
+lancamento_em timestamp default current_timestamp
+);
+
+insert into filmes(titulo, genero, duracao_minutos)
+values('harry potter', 'fantasia', 180);
+
+insert into filmes(titulo, genero, duracao_minutos)
+values('crepusculo', 'romance', 122);
+
+select * from filmes
+
+
+
+
+
+
+
